@@ -1,3 +1,6 @@
+
+
+import 'package:auth_laravel/screen_page/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -34,13 +37,17 @@ class _home_screenState extends State<home_screen> {
           ListTile(
             leading: Icon(Icons.login),
             title: Text("login"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => login_screen(),
+              ));
+            },
           ),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text("logout"),
             onTap: () {
-              Navigator.pop(context);
+              //  Navigator.pop(context);
             },
           ),
         ]),
