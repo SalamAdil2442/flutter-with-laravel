@@ -1,6 +1,8 @@
+import 'package:auth_laravel/service/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:provider/provider.dart';
 
 class login_screen extends StatefulWidget {
   const login_screen({super.key});
@@ -88,7 +90,9 @@ class _login_screenState extends State<login_screen> {
                       "device": "mobile",
                     };
                     if (_formKey.currentState!.validate()) {
-                      print(creds);
+                      Provider.of<Auth>(context, listen: false)
+                          .login(creds: creds);
+                      Navigator.pop(context);
                     }
                   },
                   child: Text(
